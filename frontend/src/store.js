@@ -9,16 +9,10 @@ export const history = createBrowserHistory();
 
 const getMiddleware = () => {
   if (process.env.NODE_ENV === "production") {
-    return applyMiddleware(
-      promiseMiddleware,
-      localStorageMiddleware
-    );
+    return applyMiddleware(promiseMiddleware, localStorageMiddleware);
   } else {
     // Enable additional logging in non-production environments.
-    return applyMiddleware(
-      promiseMiddleware,
-      localStorageMiddleware,
-    );
+    return applyMiddleware(promiseMiddleware, localStorageMiddleware);
   }
 };
 
