@@ -53,4 +53,7 @@ class ProfileFavorites extends Profile {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouterParams(ProfileFavorites));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouterParams(ProfileFavorites));

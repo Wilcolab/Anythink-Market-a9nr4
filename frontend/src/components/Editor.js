@@ -173,4 +173,7 @@ class Editor extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouterParams(Editor));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouterParams(Editor));

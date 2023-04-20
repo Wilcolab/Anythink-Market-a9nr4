@@ -50,32 +50,26 @@ const App = (props) => {
   if (props.appLoaded) {
     return (
       <div>
-        <Header
-          appName={props.appName}
-          currentUser={props.currentUser}
-        />
+        <Header appName={props.appName} currentUser={props.currentUser} />
         <Routes>
-          <Route exact path="/" element={<Home/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/register" element={<Register/>} />
-          <Route path="/editor/:slug" element={<Editor/>} />
-          <Route path="/editor" element={<Editor/>} />
-          <Route path="/item/:id" element={<Item/>} />
-          <Route path="/settings" element={<Settings/>} />
-          <Route path="/:username/favorites" element={<ProfileFavorites/>} />
-          <Route path="/:username" element={<Profile/>} />
+          <Route exact path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/editor/:slug" element={<Editor />} />
+          <Route path="/editor" element={<Editor />} />
+          <Route path="/item/:id" element={<Item />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/:username/favorites" element={<ProfileFavorites />} />
+          <Route path="/:username" element={<Profile />} />
         </Routes>
       </div>
     );
   }
   return (
     <div>
-      <Header
-        appName={props.appName}
-        currentUser={props.currentUser}
-      />
+      <Header appName={props.appName} currentUser={props.currentUser} />
     </div>
   );
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,17 +1,15 @@
 import React from "react";
 import logo from "../../imgs/logo.png";
-import agent from "../../agent"
-
+import agent from "../../agent";
 
 const Banner = (props) => {
-  const onSearchChange = (event) =>  {
+  const onSearchChange = (event) => {
     props.onSearchFilter(
       event.target.value,
-      (page) => 
-      agent.Items.byTitle(event.target.value, page),
+      (page) => agent.Items.byTitle(event.target.value, page),
       agent.Items.byTitle(event.target.value)
-    )
-  }
+    );
+  };
 
   return (
     <div className="banner text-white">
@@ -21,7 +19,15 @@ const Banner = (props) => {
           <span>A place to </span>
           <span id="get-part">get</span>
           <form className="mx-2 w-50">
-            <input type="text" className="form-control" id="search-box" aria-describedby="searchBox" placeholder="What do you truly desire ?" name="term" onChange={onSearchChange}/>
+            <input
+              type="text"
+              className="form-control"
+              id="search-box"
+              aria-describedby="searchBox"
+              placeholder="What do you truly desire ?"
+              name="term"
+              onChange={onSearchChange}
+            />
           </form>
           <span> the cool stuff.</span>
         </div>
