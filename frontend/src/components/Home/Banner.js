@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../imgs/logo.png";
 import agent from "../../agent";
 
 const Banner = (props) => {
+  const [searchVisible, setSearchVisible] = useState(false);
+
   const onSearchChange = (event) => {
     props.onSearchFilter(
       event.target.value,
@@ -17,18 +19,32 @@ const Banner = (props) => {
         <img src={logo} alt="banner" />
         <div className="d-flex justify-content-center">
           <span>A place to </span>
-          <span id="get-part">get</span>
-          <form className="mx-2 w-50">
-            <input
-              type="text"
-              className="form-control"
-              id="search-box"
-              aria-describedby="searchBox"
-              placeholder="What do you truly desire ?"
-              name="term"
-              onChange={onSearchChange}
-            />
-          </form>
+
+          <span
+            id="get-part"
+            className="mx-2"
+            onClick={() => {
+              if (!searchVisible) setSearchVisible(true);
+              else setSearchVisible(false);
+            }}
+          >
+            get
+          </span>
+
+          {searchVisible && (
+            <form className="mx-2 w-50">
+              <input
+                type="text"
+                className="form-control"
+                id="search-box"
+                aria-describedby="searchBox"
+                placeholder="What do you truly desire ?"
+                name="term"
+                onChange={onSearchChange}
+              />
+            </form>
+          )}
+
           <span> the cool stuff.</span>
         </div>
       </div>
