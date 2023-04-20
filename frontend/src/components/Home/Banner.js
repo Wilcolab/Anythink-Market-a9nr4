@@ -1,14 +1,28 @@
 import React from "react";
 import logo from "../../imgs/logo.png";
+import agent from "../../agent"
 
-const Banner = () => {
+
+const Banner = (props) => {
+  const onSearchChange = (event) =>  {
+    props.onSearchFilter(
+      event.target.value,
+      (page) => 
+      agent.Items.byTitle(event.target.value, page),
+      agent.Items.byTitle(event.target.value)
+    )
+  }
+
   return (
     <div className="banner text-white">
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" />
-        <div>
+        <div className="d-flex justify-content-center">
           <span>A place to </span>
           <span id="get-part">get</span>
+          <form className="mx-2 w-50">
+            <input type="text" className="form-control" id="search-box" aria-describedby="searchBox" placeholder="What do you truly desire ?" name="term" onChange={onSearchChange}/>
+          </form>
           <span> the cool stuff.</span>
         </div>
       </div>
